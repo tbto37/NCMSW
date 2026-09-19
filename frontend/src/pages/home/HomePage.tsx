@@ -1,189 +1,59 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { ArrowRight, CheckCircle2, ShieldCheck, Printer, Truck, Sparkles, Building2 } from 'lucide-react';
-import { Button } from '../../components/ui/Button';
-import { Card } from '../../components/ui/Card';
-import { SectionHeader } from '../../components/ui/SectionHeader';
-import { COMPANY_INFO } from '../../shared/constants/navigation';
+import { ArrowRight, ChevronRight, Layers, Sparkles, CheckCircle2 } from 'lucide-react';
+import { SITE_CONFIG, CARDS, TEXTURE_COMPARISONS, GUIDE_TIPS, CATEGORIES } from '../../shared/data/cards';
 
 export const HomePage: React.FC = () => {
   return (
-    <div className="space-y-24 sm:space-y-32 pb-24">
+    <div className="space-y-20 sm:space-y-28 pb-20">
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden pt-12 sm:pt-20 pb-16 sm:pb-24 bg-gradient-to-b from-blue-900 via-slate-900 to-slate-900 text-white">
-        {/* Subtle decorative background light */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full overflow-hidden pointer-events-none opacity-25">
-          <div className="absolute -top-40 left-1/4 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-          <div className="absolute top-20 right-1/4 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
-        </div>
+      <section className="bg-[#F5F3EE] border-b border-[#E2E8F0] pt-12 sm:pt-20 pb-16 sm:pb-24">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Hero Copy */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-[#E2E8F0] text-xs font-medium text-[#17324D]">
+                <span className="w-2 h-2 rounded-full bg-[#245EDB]" />
+                명함 스타일 & 제작 가이드
+              </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            대한민국 1등 기업형 명함 관리·인쇄 솔루션
-          </div>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#17324D] leading-[1.2]">
+                좋은 인상을 남기는, <br />
+                <span className="text-[#245EDB]">한 장의 명함</span>
+              </h1>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight sm:leading-none max-w-4xl mx-auto">
-            비즈니스의 첫인상, <br className="hidden sm:inline" />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 via-indigo-200 to-amber-200">
-              로그컴 맞춤 명함 솔루션
-            </span>
-            으로 완성하세요.
-          </h1>
-
-          <p className="mt-6 text-base sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-            복잡한 임직원 명함 발주부터 시안 교정, 초정밀 오프셋 인쇄, 개별 맞춤 배송까지. 
-            스마트 B2B 플랫폼 **NCMS**로 명함 관리가 1분 만에 끝납니다.
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/inquiry">
-              <Button size="lg" className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 shadow-lg shadow-blue-900/50">
-                도입 및 견적 문의
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-            <a href={COMPANY_INFO.adminUrl} target="_blank" rel="noreferrer">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-slate-700 bg-slate-800/80 hover:bg-slate-800 text-slate-200">
-                NCMS B2B 데모 체험
-              </Button>
-            </a>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div className="mt-16 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-slate-800/80">
-            <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white">100+</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">기업 고객사 도입</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-amber-400">99.8%</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">납기 준수율</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-white">1분</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">온라인 발주 및 교정</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl font-extrabold text-blue-400">20년+</div>
-              <div className="text-xs sm:text-sm text-slate-400 mt-1">인쇄·후가공 노하우</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Core Value Highlights */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          badge="Why LOGCOM"
-          title="기업 명함 관리가 혁신적으로 쉬워집니다"
-          description="기존의 이메일 교정, 전화 주문, 엑셀 취합의 비효율을 없애고 엔터프라이즈 맞춤형 자동화 환경을 제공합니다."
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card hoverable className="p-8">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center mb-6">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-3">
-              기업 전용 템플릿 & 실시간 미리보기
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              고객사의 CI/BI 가이드를 엄격히 반영한 전용 폰트, 로고, 레이아웃을 등록하여 
-              정보 입력 즉시 실시간 SVG 렌더링으로 오탈자 없이 교정합니다.
-            </p>
-          </Card>
-
-          <Card hoverable className="p-8">
-            <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center mb-6">
-              <Printer className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-3">
-              장인 정신의 프리미엄 인쇄 품질
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              고해상도 옵셋/인디고 인쇄기, FSC 친환경 인증 수입지, 박가공·형압·에지 컬러링 등 
-              기업의 품격을 높이는 다채로운 프리미엄 후가공을 지원합니다.
-            </p>
-          </Card>
-
-          <Card hoverable className="p-8">
-            <div className="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-6">
-              <Truck className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 mb-3">
-              스마트 검수 및 전국 직배송
-            </h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              전문 검수팀의 데이터 검증 후 인쇄에 착수하며, 본사 일괄 납품부터 
-              전국 지사·해외 지사 개별 직발송까지 운송장 연동으로 추적 관리합니다.
-            </p>
-          </Card>
-        </div>
-      </section>
-
-      {/* 3. NCMS Platform Integration Feature Preview */}
-      <section className="bg-slate-100/70 py-16 sm:py-24 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100/80 rounded-full">
-                B2B 솔루션 NCMS
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                임직원 명함 발주부터 총무팀 승인까지, <br />
-                전용 웹 포털로 한 번에 해결
-              </h2>
-              <p className="text-slate-600 leading-relaxed">
-                로그컴 고객사에게는 독립된 접속 주소와 브랜드 커스텀이 적용된 NCMS 전용 포털을 무료로 구축해 드립니다.
+              <p className="text-base sm:text-lg text-[#1E293B]/80 leading-relaxed font-normal max-w-xl">
+                다양한 명함 스타일과 제작 정보를 로그컴에서 살펴보세요. 
+                비즈니스의 성격에 꼭 맞는 종이의 질감과 표현 방식을 제안합니다.
               </p>
-              
-              <ul className="space-y-3 text-sm text-slate-700">
-                <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-700 shrink-0" />
-                  <span>임직원 셀프 정보 입력 및 모바일 미리보기 승인</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-700 shrink-0" />
-                  <span>기업 관리자의 발주 취합, 예산 관리 및 통계 대시보드</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-700 shrink-0" />
-                  <span>인쇄 전용 자동화 PDF 생성 및 원클릭 재주문</span>
-                </li>
-              </ul>
 
-              <div className="pt-2">
-                <Link to="/services">
-                  <Button variant="secondary" className="gap-2">
-                    서비스 상세 보기
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <Link
+                  to="/cards"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-[#17324D] hover:bg-[#102438] text-white text-sm font-semibold shadow-sm transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#245EDB]"
+                >
+                  명함 둘러보기
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/business"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-white hover:bg-[#F5F3EE] text-[#17324D] border border-[#E2E8F0] text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#245EDB]"
+                >
+                  기업명함 알아보기
                 </Link>
               </div>
             </div>
 
-            {/* Visual Box */}
-            <div className="relative rounded-2xl bg-white p-6 sm:p-8 shadow-xl border border-slate-200/80">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-400"></span>
-                  <span className="w-3 h-3 rounded-full bg-amber-400"></span>
-                  <span className="w-3 h-3 rounded-full bg-emerald-400"></span>
-                </div>
-                <span className="text-xs text-slate-400 font-mono">ncms.logcom.co.kr</span>
-              </div>
-              <div className="mt-6 space-y-4">
-                <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                  <div className="text-xs font-semibold text-slate-500 mb-1">고객사 전용 테넌트</div>
-                  <div className="text-sm font-bold text-slate-800">한미약품 / 제일기획 등 주요 파트너 운영 중</div>
-                </div>
-                <div className="p-4 bg-blue-50/50 rounded-xl border border-blue-100 flex items-center justify-between">
-                  <div>
-                    <div className="text-xs font-semibold text-blue-600">명함 실시간 교정 엔진</div>
-                    <div className="text-sm font-bold text-slate-900">SVG 고해상도 프리뷰 & 인쇄 자동화</div>
-                  </div>
-                  <Building2 className="w-8 h-8 text-blue-600/40" />
+            {/* Hero Large Mockup Image */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-xl overflow-hidden shadow-md border border-[#E2E8F0] bg-white group">
+                <img
+                  src={SITE_CONFIG.images.hero}
+                  alt="로그컴 네이비 및 화이트 종이 질감 명함 샘플"
+                  className="w-full h-auto aspect-[16/10] object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-sm text-white text-[11px] px-2.5 py-1 rounded">
+                  스튜디오 촬영 예시 비주얼
                 </div>
               </div>
             </div>
@@ -191,27 +61,236 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Ready to Start CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white p-8 sm:p-16 text-center shadow-2xl relative overflow-hidden">
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
-            우리 회사 맞춤 명함 솔루션을 지금 시작해보세요
-          </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-            무료 샘플 키트 신청 및 전담 매니저의 기업 맞춤 도입 컨설팅을 제공해 드립니다.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/inquiry">
-              <Button size="lg" className="w-full sm:w-auto bg-white text-blue-900 hover:bg-slate-100 font-bold px-8">
-                온라인 상담 / 견적 신청
-              </Button>
-            </Link>
-            <Link to="/about">
-              <Button size="lg" variant="ghost" className="w-full sm:w-auto text-slate-200 hover:text-white hover:bg-white/10">
-                로그컴 회사소개 보기
-              </Button>
-            </Link>
+      {/* 2. Style Categories Overview */}
+      <section className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-[#E2E8F0]">
+          <div>
+            <span className="text-xs font-bold text-[#245EDB] tracking-wider uppercase block mb-1">
+              Styles Overview
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17324D]">
+              명함 스타일 카테고리
+            </h2>
           </div>
+          <p className="text-sm text-[#64748B] mt-2 md:mt-0">
+            원하는 감성과 용도에 따라 4가지 스타일로 분류해 탐색할 수 있습니다.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {CATEGORIES.filter((c) => c.id !== 'ALL').map((cat) => {
+            const descMap: Record<string, string> = {
+              STANDARD: '단정하고 가독성 높은 표준 매트 용지',
+              PREMIUM: '도톰한 두께와 따뜻한 감촉의 코튼지',
+              TEXTURE: '직조 결이 살아있는 클래식 리넨·크라프트',
+              SPECIAL: '은은한 박가공과 입체적인 형압 표현',
+            };
+            return (
+              <Link
+                key={cat.id}
+                to={`/cards?category=${cat.id}`}
+                className="group bg-[#F5F3EE] hover:bg-white rounded-lg p-5 border border-[#E2E8F0] transition-all hover:shadow-sm"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-semibold text-[#245EDB] bg-white px-2.5 py-1 rounded border border-[#E2E8F0]">
+                    {cat.label}
+                  </span>
+                  <ChevronRight className="w-4 h-4 text-[#64748B] group-hover:translate-x-0.5 transition-transform" />
+                </div>
+                <h3 className="font-bold text-base text-[#17324D] mb-1">
+                  {cat.label} 명함
+                </h3>
+                <p className="text-xs text-[#64748B] leading-relaxed">
+                  {descMap[cat.id]}
+                </p>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 3. Featured 6 Business Card Samples Grid */}
+      <section className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#E2E8F0]">
+          <div>
+            <span className="text-xs font-bold text-[#245EDB] tracking-wider uppercase block mb-1">
+              Sample Collection
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17324D]">
+              대표 명함 스타일 살펴보기
+            </h2>
+          </div>
+          <Link
+            to="/cards"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-[#245EDB] hover:underline mt-2 sm:mt-0"
+          >
+            전체 명함 목록 보기
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {CARDS.map((card) => (
+            <Link
+              key={card.id}
+              to={`/cards/${card.slug}`}
+              className="group bg-white rounded-xl border border-[#E2E8F0] overflow-hidden transition-all duration-300 hover:shadow-md hover:border-[#CBD5E1] flex flex-col"
+            >
+              {/* Card Mockup Visual */}
+              <div className="aspect-[4/3] bg-[#F5F3EE] overflow-hidden relative">
+                <img
+                  src={card.image}
+                  alt={`${card.name} 명함 샘플`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
+                <span className="absolute top-3 left-3 text-[11px] font-semibold text-[#17324D] bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded border border-[#E2E8F0]">
+                  {card.categoryName}
+                </span>
+              </div>
+
+              {/* Card Information */}
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="font-bold text-lg text-[#17324D] group-hover:text-[#245EDB] transition-colors">
+                    {card.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[#1E293B]/75 leading-relaxed line-clamp-2">
+                    {card.shortDesc}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-[#E2E8F0] text-xs text-[#64748B] flex items-center justify-between">
+                  <span className="truncate pr-2">{card.paperSpec}</span>
+                  <span className="text-[#245EDB] font-medium shrink-0 group-hover:translate-x-0.5 transition-transform">
+                    상세보기 →
+                  </span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Material & Texture Comparison Section */}
+      <section className="bg-[#F5F3EE] py-16 sm:py-20 border-y border-[#E2E8F0]">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <span className="text-xs font-bold text-[#245EDB] tracking-wider uppercase block mb-1">
+              Material & Touch
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17324D]">
+              소재와 표현 비교
+            </h2>
+            <p className="text-sm sm:text-base text-[#1E293B]/75 mt-2">
+              종이의 표면 처리와 후가공에 따라 완전히 다른 브랜드 첫인상을 전달할 수 있습니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TEXTURE_COMPARISONS.map((tex, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl p-6 sm:p-8 border border-[#E2E8F0] shadow-sm flex flex-col justify-between"
+              >
+                <div>
+                  <span className="inline-block text-[11px] font-semibold text-[#245EDB] bg-[#F5F3EE] px-2.5 py-1 rounded mb-4">
+                    {tex.tag}
+                  </span>
+                  <h3 className="font-bold text-lg text-[#17324D] mb-1">
+                    {tex.title}
+                  </h3>
+                  <div className="text-xs font-medium text-[#64748B] mb-3">
+                    {tex.subtitle}
+                  </div>
+                  <p className="text-sm text-[#1E293B]/80 leading-relaxed">
+                    {tex.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Corporate Business Card Showcase Banner */}
+      <section className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-[#E2E8F0] bg-white overflow-hidden shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-6 p-8 sm:p-12 space-y-5">
+              <span className="inline-block text-xs font-semibold text-[#245EDB] bg-[#F5F3EE] px-3 py-1 rounded border border-[#E2E8F0]">
+                기업명함 솔루션 안내
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#17324D] leading-tight">
+                일관된 브랜드 아이덴티티, <br />
+                팀과 기업을 위한 명함 디자인
+              </h2>
+              <p className="text-sm sm:text-base text-[#1E293B]/80 leading-relaxed">
+                여러 구성원의 명함을 통일된 스타일로 정돈하고 규격과 서체를 표준화하여 
+                기업의 브랜드 신뢰도를 높일 수 있는 방법을 안내해 드립니다.
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/business"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-md bg-[#17324D] hover:bg-[#102438] text-white text-sm font-semibold transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#245EDB]"
+                >
+                  기업명함 소개 보기
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6 p-4 sm:p-6 lg:p-8">
+              <div className="rounded-xl overflow-hidden border border-[#E2E8F0] bg-[#F5F3EE]">
+                <img
+                  src={SITE_CONFIG.images.team}
+                  alt="일관된 브랜드 스타일로 정렬된 기업 팀 명함 목업"
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Production Guide Preview (3 Tips) */}
+      <section className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#E2E8F0]">
+          <div>
+            <span className="text-xs font-bold text-[#245EDB] tracking-wider uppercase block mb-1">
+              Preparation Guide
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17324D]">
+              명함 제작 가이드 미리보기
+            </h2>
+          </div>
+          <Link
+            to="/guide"
+            className="inline-flex items-center gap-1 text-sm font-semibold text-[#245EDB] hover:underline mt-2 sm:mt-0"
+          >
+            제작 가이드 전체 및 FAQ 보기
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {GUIDE_TIPS.map((tip) => (
+            <div
+              key={tip.num}
+              className="bg-[#F5F3EE] rounded-xl p-6 border border-[#E2E8F0] relative overflow-hidden"
+            >
+              <div className="text-3xl font-extrabold text-[#17324D]/15 mb-3 font-mono">
+                {tip.num}
+              </div>
+              <h3 className="font-bold text-base text-[#17324D] mb-2">
+                {tip.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#1E293B]/75 leading-relaxed">
+                {tip.description}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
     </div>
