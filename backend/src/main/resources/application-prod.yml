@@ -1,0 +1,18 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    url: ${DATABASE_URL:${SPRING_DATASOURCE_URL:jdbc:postgresql://sakura.proxy.rlwy.net:17451/railway}}
+    driver-class-name: org.postgresql.Driver
+    username: ${DATABASE_USERNAME:${SPRING_DATASOURCE_USERNAME:postgres}}
+    password: ${DATABASE_PASSWORD:${SPRING_DATASOURCE_PASSWORD:YuTJvljTRuIwrjnnqKyGlKeIWBGYVLAG}}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  port: ${PORT:8080}

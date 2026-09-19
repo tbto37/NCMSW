@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: ncmsw-backend
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ncmsw}
+    driver-class-name: org.postgresql.Driver
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          time_zone: Asia/Seoul
+
+  mail:
+    host: ${SPRING_MAIL_HOST:smtp.naver.com}
+    port: ${SPRING_MAIL_PORT:465}
+    username: ${SPRING_MAIL_USERNAME:logcom2@naver.com}
+    password: ${SPRING_MAIL_PASSWORD:Y37UQYPK7ZRX}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: smtp.naver.com
+
+server:
+  port: 8080
+
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000,https://logcom.co.kr,https://*.logcom.co.kr,https://*.vercel.app}
+
+logging:
+  level:
+    kr.co.tobetheone.ncmsw: DEBUG
+    org.springframework.web: INFO
